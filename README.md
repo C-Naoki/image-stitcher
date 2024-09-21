@@ -7,10 +7,10 @@ This is a python implementation for stitching images by automatically searching 
 
 ## 👨‍💻 Usage
 ```python
-from src.models.run import run
+from src.main import main
 from src.utils.visualizer import result_visualize
 
-merged_image, cand = run(
+merged_image, cand = main(
     image1=image1,       # The first image to be combined
     image2=image2,       # The second image to be combined
     min_overlap=(5, 5),  # The minimum overlap region
