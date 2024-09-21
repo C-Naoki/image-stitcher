@@ -1,5 +1,5 @@
 # image-stitcher
-This is a python implementation for stitching images based on overlap region.
+This is a python implementation for stitching images by automatically searching for overlap region.
 - [👨‍💻 Usage](#-usage)
 - [🎯 Preview of results](#-preview-of-results)
 - [🙋‍♂️ Support](#️-support)
