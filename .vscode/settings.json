@@ -1,0 +1,14 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",  // Ruff: it is a fast linter for Python, written in Rust.
+    "editor.codeActionsOnSave": {
+        "source.fixAll.ruff": "explicit",  //  Fix codes when saving
+        "source.organizeImports.ruff": "explicit",  //  Organize imports order when saving
+    },
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+  },
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "autoDocstring.docstringFormat": "numpy",
+  "makefile.configureOnOpen": false,
+}

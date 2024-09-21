@@ -1,0 +1,39 @@
+name: Clean unnecessary .gitkeep files
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Remove unnecessary .gitkeep files
+        run: |
+          find . -name '.gitkeep' -print0 | while IFS= read -r -d '' file; do
+            dir=$(dirname "$file")
+            if [ "$(ls -A "$dir" | wc -l)" -gt "1" ]; then
+              echo "Removing $file"
+              rm "$file"
+            fi
+          done
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m ":fire: Remove unnecessary .gitkeep files"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
