@@ -1,11 +1,11 @@
 # image-stitcher
 This is a python implementation for stitching images based on overlap region.
-- [👨‍💻 Usae](#-usae)
+- [👨‍💻 Usage](#-usage)
 - [🎯 Preview of results](#-preview-of-results)
 - [🙋‍♂️ Support](#️-support)
 - [✉️ Contact](#️-contact)
 
-## 👨‍💻 Usae
+## 👨‍💻 Usage
 ```python
 from src.models.run import run
 from src.utils.visualizer import result_visualize
