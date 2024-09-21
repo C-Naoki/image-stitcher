@@ -1,11 +1,11 @@
 # image-stitcher
 This is a python implementation for stitching images based on overlap region.
-- [🛠️ Usage](#️-usage)
+- [�‍💻 Usage](#-usage)
 - [🎯 Preview of results](#-preview-of-results)
 - [🙋‍♂️ Support](#️-support)
 - [✉️ Contact](#️-contact)
 
-## 🛠️ Usage
+## 👨‍💻 Usage
 ```python
 from src.models.run import run
 from src.utils.visualizer import result_visualize
@@ -26,7 +26,7 @@ result_visualize(
 
 
 ## 🎯 Preview of results
-The results using [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) are shown below. I would refer you to [`tutorial.ipynb`](https://github.com/C-Naoki/image-stitcher/blob/main/tutorial.ipynb) for detailed results.
+The results using [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) are shown below. I would refer you to [`tutorial.ipynb`](https://github.com/C-Naoki/image-stitcher/blob/main/notebooks/tutorial.ipynb) for detailed results.
 
 <p align="center">
 <img src="./docs/assets/input.png" alt="" align=center />
