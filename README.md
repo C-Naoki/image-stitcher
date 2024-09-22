@@ -49,7 +49,7 @@ The results using [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) are 
 
 ## 🧠 Main Idea
 <p align="center">
-<img src="./docs/assets/case1.png" alt="" align=center />
+<img src="./docs/assets/case1.png" width=500 alt="" align=center />
 <br><br>
 <b>Figure 4.</b> The overview of this application in limited case.
 </p>
@@ -57,7 +57,7 @@ The results using [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) are 
 This application is designed based on the overlap region's width $w_c$ and height $h_c$. Thanks to this idea, we can simply limit the search space, thus preventing it from capturing overly small, suboptimal overlap region.
 
 <p align="center">
-<img src="./docs/assets/case2.png" alt="" align=center />
+<img src="./docs/assets/case2.png" width=500 alt="" align=center />
 <br><br>
 <b>Figure 5.</b> The overview of this application.
 </p>
