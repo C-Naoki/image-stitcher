@@ -2,6 +2,7 @@
 This is a python implementation for stitching images by automatically searching for overlap region.
 - [👨‍💻 Usage](#-usage)
 - [🎯 Preview of results](#-preview-of-results)
+- [🧠 Main Idea](#-main-idea)
 - [🙋‍♂️ Support](#️-support)
 - [✉️ Contact](#️-contact)
 
@@ -45,6 +46,24 @@ The results using [`CIFAR-10`](https://www.cs.toronto.edu/~kriz/cifar.html) are 
 <br><br>
 <b>Figure 3.</b> The output image.
 </p>
+
+## 🧠 Main Idea
+<p align="center">
+<img src="./docs/assets/case1.png" alt="" align=center />
+<br><br>
+<b>Figure 4.</b> The overview of this application in limited case.
+</p>
+
+This application is designed based on the overlap region's width $w_c$ and height $h_c$. Thanks to this idea, we can simply limit the search space, thus preventing it from capturing overly small, suboptimal overlap region.
+
+<p align="center">
+<img src="./docs/assets/case2.png" alt="" align=center />
+<br><br>
+<b>Figure 5.</b> The overview of this application.
+</p>
+
+However, the above approach is not always applicable, specifically when $\min(h_1, h_2) < h_c$ or $\min(w_1, w_2) < w_c$. To address this issue, I change the perspective of $w_c$ and $h_c$ like the above figure. Therefore, this application can handle images of arbitrary sizes.
+
 
 ## 🙋‍♂️ Support
 💙 If you like this app, give it a ⭐ and share it with friends!
