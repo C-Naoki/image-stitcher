@@ -75,42 +75,38 @@ def main(image1, image2, min_overlap=(5, 5), verbose=False):
                             cand["bottomright2"] = bottomright2
                             cand["height"] = hc
                             cand["width"] = wc
-    print("\n==== BEST RESULT ====")
-    print(f'Best MSE: {cand["best_mse"]}')
-    print(f'Best rotation: {cand["best_rotation"]}')
-    print(f"image1\'s shape: ({w1}, {h1})")
-    print(f"image2\'s shape: ({w2}, {h2})")
-    print(f'shared image\'s top-left in image1: {cand["topleft1"]}')
-    print(f'shared image\'s bottom-right in image1: {cand["bottomright1"]}')
-    print(f'shared image\'s top-left in (rotated) image2: {cand["topleft2"]}')
-    print(f'shared image\'s bottom-right in (rotated) image2: {cand["bottomright2"]}')
-    print(f'shared image\'s height: {cand["height"]}')
-    print(f'shared image\'s width: {cand["width"]}')
 
     revised_image2 = rotate(image2, cand["best_rotation"], resize=True, preserve_range=True).astype(np.uint8)
     h2, w2, _ = revised_image2.shape
     hc, wc = cand["height"], cand["width"]
     merged_image = np.zeros((h1 + h2 - cand["height"], w1 + w2 - cand["width"], 3), dtype=np.uint8)
+    merged_image = np.zeros(
+        (max(h1, h2) + max(min(h1, h2) - cand["height"], 0), max(w1, w2) + max(min(w1, w2) - cand["width"], 0), 3),
+        dtype=np.uint8,
+    )
     merged_image[:, :, 0] = 255
     hm, wm, _ = merged_image.shape
-    if hc <= min(h1, h2) and wc <= min(w1, w2):
-        left1 = 1 if cand["topleft1"].x == 0 else 0
-        left2 = 1 if cand["topleft2"].x == 0 else 0
-        top1 = 1 if cand["topleft1"].y == 0 else 0
-        top2 = 1 if cand["topleft2"].y == 0 else 0
-        merged_image[(h2 - hc) * top1 : h1 + (h2 - hc) * top1, (w2 - wc) * left1 : w1 + (w2 - wc) * left1, :] = image1
-        merged_image[(h1 - hc) * top2 : h2 + (h1 - hc) * top2, (w1 - wc) * left2 : w2 + (w1 - wc) * left2, :] = (
-            revised_image2
-        )
-    elif hc > min(h1, h2) or wc > min(w1, w2):
-        raise NotImplementedError
-    else:
-        small_image = image1 if h1 < h2 else revised_image2
-        large_image = image1 if h1 >= h2 else revised_image2
-        merged_image = large_image.copy()
-        merged_image[: small_image.shape[0], : small_image.shape[1]] = small_image
 
-        raise NotImplementedError
+    print("\n==== BEST RESULT ====")
+    print(f'Best MSE: {cand["best_mse"]}')
+    print(f'Best rotation: {cand["best_rotation"]}')
+    print(f"image1's shape: ({h1}, {w1})")
+    print(f"image2's shape: ({h2}, {w2})")
+    print(f'shared image\'s top-left in image1: {cand["topleft1"]}')
+    print(f'shared image\'s bottom-right in image1: {cand["bottomright1"]}')
+    print(f'shared image\'s top-left in (rotated) image2: {cand["topleft2"]}')
+    print(f'shared image\'s bottom-right in (rotated) image2: {cand["bottomright2"]}')
+    print(f"shared image's height: {hc}")
+    print(f"shared image's width: {wc}")
+
+    left1 = 1 if cand["topleft1"].x == 0 else 0
+    left2 = 1 if cand["topleft2"].x == 0 else 0
+    top1 = 1 if cand["topleft1"].y == 0 else 0
+    top2 = 1 if cand["topleft2"].y == 0 else 0
+    merged_image[(h2 - hc) * top1 : h1 + (h2 - hc) * top1, (w2 - wc) * left1 : w1 + (w2 - wc) * left1, :] = image1
+    merged_image[(h1 - hc) * top2 : h2 + (h1 - hc) * top2, (w1 - wc) * left2 : w2 + (w1 - wc) * left2, :] = (
+        revised_image2
+    )
 
     return merged_image, cand
 
