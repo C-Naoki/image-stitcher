@@ -12,10 +12,10 @@ from src.main import main
 from src.utils.visualizer import result_visualize
 
 merged_image, cand = main(
-    image1=image1,       # The first image to be combined
-    image2=image2,       # The second image to be combined
-    min_overlap=(5, 5),  # The minimum overlap region
-    verbose=False,       # Whether to print the log
+    image1=image1,              # The first image to be combined
+    image2=image2,              # The second image to be combined
+    min_overlap=(5, 5),         # The minimum overlap region
+    verbose=False,              # Whether to print the log
 )
 result_visualize(
     image1=image1,              # The first image to be combined
