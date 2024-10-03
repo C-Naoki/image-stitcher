@@ -3,6 +3,8 @@
 [![Python 3.10](https://img.shields.io/badge/Python-3.10-green.svg)](https://www.python.org/downloads/release/python-390/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![RubyDoc](https://img.shields.io/badge/%F0%9F%93%9AZenn-documentation-informational.svg)](https://zenn.dev/naoki0103/articles/image-stitcher-application)
+<a href="https://github.com/C-Naoki/image-stitcher/stargazers"><img src="https://img.shields.io/github/stars/c-naoki/image-stitcher" alt="Stars Badge"/></a>
+<a href="https://github.com/c-naoki/image-stitcher/network/members"><img src="https://img.shields.io/github/forks/c-naoki/image-stitcher" alt="Forks Badge"/></a>
 
 This is a python implementation for stitching images by automatically searching for overlap region.
 - [👨‍💻 Usage](#-usage)
